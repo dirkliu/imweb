@@ -1,0 +1,15 @@
+{
+  "name": "my-vue",
+  "version": "1.0.0",
+  "description": "Vue project of brother-7th",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "learn",
+    "vue"
+  ],
+  "author": "jason7\u001b[D\u001b[D\u001b[D\u001b[D\u001b[J\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C",
+  "license": "ISC"
+}
