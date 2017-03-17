@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <header>
+      <a href="/">首页</a>
+      <a href="/user">用户</a>
+    </header>
     <router-view></router-view>
   </div>
 </template>
