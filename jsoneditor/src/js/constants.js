@@ -6,7 +6,7 @@ export default {
   'Append': '向后添加',
 
   //类型
-  Type: '类型',
+  'Type': '类型',
   'Auto': '自动',
   'Array': '数组',
   'String': '字符串',
