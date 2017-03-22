@@ -178,19 +178,6 @@ textmode.create = function (container, options) {
       });
     }
 
-    var poweredBy = document.createElement('a');
-    poweredBy.appendChild(document.createTextNode('powered by ace'));
-    poweredBy.href = 'http://ace.ajax.org';
-    poweredBy.target = '_blank';
-    poweredBy.className = 'jsoneditor-poweredBy';
-    poweredBy.onclick = function () {
-      // TODO: this anchor falls below the margin of the content,
-      // therefore the normal a.href does not work. We use a click event
-      // for now, but this should be fixed.
-      window.open(poweredBy.href, poweredBy.target);
-    };
-    this.menu.appendChild(poweredBy);
-
     // register onchange event
     aceEditor.on('change', this._onChange.bind(this));
   }
@@ -283,7 +270,7 @@ textmode.destroy = function () {
   }
 
   this.textarea = null;
-  
+
   this._debouncedValidate = null;
 };
 

@@ -3185,12 +3185,12 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
 
   if (this.editable.value) {
     items.push({
-      text: '类型',
+      text: 'Type',
       title: 'Change the type of this field',
       className: 'jsoneditor-type-' + this.type,
       submenu: [
         {
-          text: '自动识别',
+          text: 'Auto',
           className: 'jsoneditor-type-auto' +
               (this.type == 'auto' ? ' jsoneditor-selected' : ''),
           title: titles.auto,
@@ -3199,7 +3199,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
           }
         },
         {
-          text: '数组',
+          text: 'Array',
           className: 'jsoneditor-type-array' +
               (this.type == 'array' ? ' jsoneditor-selected' : ''),
           title: titles.array,
@@ -3208,7 +3208,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
           }
         },
         {
-          text: '对象',
+          text: 'Object',
           className: 'jsoneditor-type-object' +
               (this.type == 'object' ? ' jsoneditor-selected' : ''),
           title: titles.object,
@@ -3217,7 +3217,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
           }
         },
         {
-          text: '字符串',
+          text: 'String',
           className: 'jsoneditor-type-string' +
               (this.type == 'string' ? ' jsoneditor-selected' : ''),
           title: titles.string,
@@ -3232,7 +3232,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
   if (this._hasChilds()) {
     var direction = ((this.sortOrder == 'asc') ? 'desc': 'asc');
     items.push({
-      text: '排序',
+      text: 'Sort',
       title: 'Sort the childs of this ' + this.type,
       className: 'jsoneditor-sort-' + direction,
       click: function () {
@@ -3240,7 +3240,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
       },
       submenu: [
         {
-          text: '升序',
+          text: 'Ascending',
           className: 'jsoneditor-sort-asc',
           title: 'Sort the childs of this ' + this.type + ' in ascending order',
           click: function () {
@@ -3248,7 +3248,7 @@ Node.prototype.showContextMenu = function (anchor, onClose) {
           }
         },
         {
-          text: '降序',
+          text: 'Descending',
           className: 'jsoneditor-sort-desc',
           title: 'Sort the childs of this ' + this.type +' in descending order',
           click: function () {
