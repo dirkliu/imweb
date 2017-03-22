@@ -146,7 +146,7 @@ function appendNodeFactory(Node) {
         },
         'submenu': [
           {
-            'text': '自动设置',
+            'text': 'Auto',
             'className': 'jsoneditor-type-auto',
             'title': titles.auto,
             'click': function () {
@@ -154,7 +154,7 @@ function appendNodeFactory(Node) {
             }
           },
           {
-            'text': '数组',
+            'text': 'Array',
             'className': 'jsoneditor-type-array',
             'title': titles.array,
             'click': function () {
@@ -162,7 +162,7 @@ function appendNodeFactory(Node) {
             }
           },
           {
-            'text': '对象',
+            'text': 'Object',
             'className': 'jsoneditor-type-object',
             'title': titles.object,
             'click': function () {
@@ -170,7 +170,7 @@ function appendNodeFactory(Node) {
             }
           },
           {
-            'text': '字符串',
+            'text': 'String',
             'className': 'jsoneditor-type-string',
             'title': titles.string,
             'click': function () {

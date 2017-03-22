@@ -1155,7 +1155,7 @@ treemode.showContextMenu = function (anchor, onClose) {
 
   // create duplicate button
   items.push({
-    text: '复制',
+    text: 'Duplicate',
     title: 'Duplicate selected fields (Ctrl+D)',
     className: 'jsoneditor-duplicate',
     click: function () {
@@ -1165,7 +1165,7 @@ treemode.showContextMenu = function (anchor, onClose) {
 
   // create remove button
   items.push({
-    text: '删除',
+    text: 'Remove',
     title: 'Remove selected fields (Ctrl+Del)',
     className: 'jsoneditor-remove',
     click: function () {
