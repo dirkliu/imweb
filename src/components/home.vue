@@ -1,6 +1,7 @@
 <template>
-  <div></div>
-  <json-editor v-model="json"></json-editor>
+  <div>
+    <json-editor v-model="json"></json-editor>
+  </div>
 </template>
 
 <script>
