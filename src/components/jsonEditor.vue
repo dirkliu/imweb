@@ -14,7 +14,6 @@
       }
     },
     mounted () {
-      console.log('value:', this.value)
       var options = {
         mode: 'code',
         modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes

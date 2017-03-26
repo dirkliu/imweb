@@ -1,22 +1,41 @@
 <template>
   <div>
-    <json-editor v-model="json"></json-editor>
+    <button type="button" title="add" @click="onAdd">+</button>
+    <ul>
+      <li v-for="random in randomList">
+        <b>time: {{random.time}}</b>,
+        <i>number: {{random.number}}</i>
+        <button type="button" @click="onChange(random)">change</button>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-  import jsonEditor from './jsonEditor.vue'
 
   export default {
     data () {
       return {
-        json: {
-          name: 'Jason Kidd'
-        }
+        randomList: [
+          {
+            time: new Date().toLocaleString(),
+            number: Math.random()
+          }
+        ]
       }
     },
-    components: {
-      jsonEditor
+
+    methods: {
+      onAdd () {
+        this.randomList.unshift({time: new Date().toLocaleString()})
+      },
+      onChange (random) {
+        var newRandom = {
+          time: new Date().toLocaleString(),
+          number: Math.random()
+        }
+        Object.assign(random, newRandom)
+      }
     }
   }
 </script>
