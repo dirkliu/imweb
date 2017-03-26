@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/components/home.vue'
-import User from '@/components/User.vue'
+import user from '@/components/user.vue'
 
 Vue.use(Router)
 
@@ -9,12 +9,16 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
+      name: 'home',
       component: home
     },
     {
+      path: '/json',
+      name: 'json'
+    },
+    {
       path: '/user',
-      component: User
+      component: user
     }
   ]
 })
