@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import jsonEditor from './jsonEditor.vue'
+  import jsonEditor from './JsonEditor.vue'
 
   export default {
     data () {
