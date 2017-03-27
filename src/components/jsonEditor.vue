@@ -1,5 +1,8 @@
 <template>
-  <div id="jsoneditor-vue"></div>
+  <div>
+    <div class="jsoneditor-vue"></div>
+    <div class="btns"><button type="button" @click="onSave()" :disabled="error">保存</button></div>
+  </div>
 </template>
 
 <script>
@@ -10,21 +13,32 @@
     props: ['value'],
     data () {
       return {
-        jsons: this.value
+        editor: null,
+        error: false
       }
     },
     mounted () {
+      var self = this
       var options = {
         mode: 'code',
         modes: ['code', 'form', 'text', 'tree', 'view'], // allowed modes
-        onError: function (err) {
-          alert(err.toString())
-        },
-        onModeChange: function (newMode, oldMode) {
-          console.log('Mode switched from', oldMode, 'to', newMode)
+        onChange () {
+          try {
+            var json = self.editor.get()
+            self.error = false
+          } catch (e) {
+            console.log('e:', e)
+            self.error = true
+          }
+          !self.error && self.$emit('input', json)
         }
       }
-      this.editor = new JsonEditor(this.$el, options, this.value)
+      this.editor = new JsonEditor(this.$el.querySelector('.jsoneditor-vue'), options, this.value)
+    },
+    methods: {
+      onSave () {
+        console.log('onSave!')
+      }
     }
   }
 </script>
