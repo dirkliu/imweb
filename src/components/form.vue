@@ -22,9 +22,9 @@
 
     methods: {
       onChange (name) {
-        // this.form.name = name
+        this.form.name = name
         // this.$set(this.form, 'name', name)
-        this.form = Object.assign({}, this.form, {name: name})
+        // this.form = {name: name}
       },
 
       changeNested (name) {

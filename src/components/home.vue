@@ -27,6 +27,7 @@
 
     methods: {
       onAdd () {
+        // this.randomList.unshift({number: Math.random(), time: new Date().toLocaleString()})
         this.randomList.unshift({time: new Date().toLocaleString()})
       },
       onChange (random) {
@@ -34,7 +35,7 @@
           time: new Date().toLocaleString(),
           number: Math.random()
         }
-        Object.assign(random, newRandom)
+        Object.assign({}, random, newRandom)
       }
     }
   }
