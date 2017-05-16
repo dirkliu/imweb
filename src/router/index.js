@@ -4,6 +4,7 @@ import home from '@/components/home.vue'
 import user from '@/components/user.vue'
 import json from '@/components/json.vue'
 import form from '@/components/form.vue'
+import animate from '@/components/Animate'
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ export default new Router({
     {
       path: '/user',
       component: user
+    },
+    {
+      path: '/animate',
+      component: animate
     }
   ]
 })

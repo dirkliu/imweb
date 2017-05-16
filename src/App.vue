@@ -1,10 +1,11 @@
 <template>
   <div id="app">
     <header>
-      <a href="/#/">首页</a>
-      <a href="/#/user">用户</a>
-      <a href="/#/json">json</a>
-      <a href="/#/form">form</a>
+      <router-link :to="{name: 'home'}">首页</router-link>
+      <router-link to="user">用户</router-link>
+      <router-link to="json">json</router-link>
+      <router-link to="form">form</router-link>
+      <router-link to="animate">animate</router-link>
     </header>
     <router-view></router-view>
   </div>

@@ -1,6 +1,5 @@
 <template>
 <div>
-  <json-editor v-model="json"></json-editor>
   <vue-json-editor v-model="json"></vue-json-editor>
 </div>
 </template>
