@@ -6,6 +6,7 @@
       <router-link to="json">json</router-link>
       <router-link to="form">form</router-link>
       <router-link to="animate">animate</router-link>
+      <router-link to="drag">拖放</router-link>
     </header>
     <router-view></router-view>
   </div>

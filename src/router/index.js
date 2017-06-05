@@ -5,6 +5,7 @@ import user from '@/components/user.vue'
 import json from '@/components/json.vue'
 import form from '@/components/form.vue'
 import animate from '@/components/Animate'
+import drag from '@/components/Drag.vue'
 
 Vue.use(Router)
 
@@ -32,6 +33,10 @@ export default new Router({
     {
       path: '/animate',
       component: animate
+    },
+    {
+      path: '/drag',
+      component: drag
     }
   ]
 })
