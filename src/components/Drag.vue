@@ -67,15 +67,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 ul {
   list-style: none;
-}
 
-ul li {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  float: left;
+  li {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    float: left;
+  }
 }
 </style>
