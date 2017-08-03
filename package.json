@@ -17,6 +17,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "element-ui": "^1.4.1",
     "fs": "0.0.1-security",
     "jsoneditor": "^5.5.11",
     "vue": "^2.2.2",
@@ -84,7 +85,7 @@
     "url-loader": "^0.5.7",
     "vue-json-editor": "^1.0.3",
     "vue-loader": "^11.1.4",
-    "vue-style-loader": "^2.0.0",
+    "vue-style-loader": "^2.0.5",
     "vue-template-compiler": "^2.2.1",
     "vuedraggable": "^2.11.0",
     "webpack": "^2.2.1",
