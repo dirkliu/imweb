@@ -1,30 +1,43 @@
 <template>
-  <div id="app">
-    <header>
-      <router-link :to="{name: 'home'}">首页</router-link>
-      <router-link to="user">用户</router-link>
-      <router-link to="json">json</router-link>
-      <router-link to="form">form</router-link>
-      <router-link to="animate">animate</router-link>
-      <router-link to="drag">拖放</router-link>
-    </header>
-    <router-view></router-view>
-  </div>
+<div id="app">
+  <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal">
+    <el-menu-item index="home"><router-link :to="{name: 'home'}">首页</router-link></el-menu-item>
+
+    <el-submenu index="effect">
+      <template slot="title">特效</template>
+      <el-menu-item index="drag"><router-link to="drag">拖放</router-link></el-menu-item>
+      <el-menu-item index="animate"><router-link to="animate">animate</router-link></el-menu-item>
+    </el-submenu>
+    <el-menu-item index="user"><router-link to="user">用户</router-link></el-menu-item>
+    <el-menu-item index="json"><router-link to="json">json</router-link></el-menu-item>
+    <el-menu-item index="form"><router-link to="form">form</router-link></el-menu-item>
+  </el-menu>
+  <router-view></router-view>
+</div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+
+  data () {
+    return {
+      activeIndex: 'home'
+    }
+  }
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
