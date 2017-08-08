@@ -37,6 +37,10 @@
         }
         Object.assign({}, random, newRandom)
       }
+    },
+
+    mounted () {
+      console.log('test:', TEST_ROOT)
     }
   }
 </script>
