@@ -3,9 +3,9 @@ import Router from 'vue-router'
 import home from '@/components/home.vue'
 import user from '@/components/user.vue'
 import json from '@/components/json.vue'
-import form from '@/components/form.vue'
 import animate from '@/components/Animate'
 import drag from '@/components/Drag.vue'
+import menu from '@/components/Menu.vue'
 
 Vue.use(Router)
 
@@ -22,9 +22,9 @@ export default new Router({
       component: json
     },
     {
-      path: '/form',
-      name: 'form',
-      component: form
+      path: '/menu',
+      name: '/menu',
+      component: menu
     },
     {
       path: '/user',
