@@ -6,6 +6,7 @@ import json from '@/components/json.vue'
 import animate from '@/components/Animate'
 import drag from '@/components/Drag.vue'
 import menu from '@/components/Menu.vue'
+import dialog from '@/components/Dialog.vue'
 
 Vue.use(Router)
 
@@ -37,6 +38,10 @@ export default new Router({
     {
       path: '/drag',
       component: drag
+    },
+    {
+      path: '/dialog',
+      component: dialog
     }
   ]
 })

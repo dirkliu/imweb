@@ -17,7 +17,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
-    "element-ui": "^1.4.1",
+    "element-ui": "^1.4.4",
     "fs": "0.0.1-security",
     "jsoneditor": "^5.5.11",
     "vue": "^2.2.2",
