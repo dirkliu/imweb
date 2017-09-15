@@ -12,6 +12,7 @@
     <el-menu-item index="json"><router-link to="json">json</router-link></el-menu-item>
     <el-menu-item index="menu"><router-link to="menu">菜单</router-link></el-menu-item>
     <el-menu-item index="dialog"><router-link to="dialog">dialog</router-link></el-menu-item>
+    <el-menu-item index="dialog"><router-link to="routes">路由</router-link></el-menu-item>
   </el-menu>
   <router-view></router-view>
 </div>
