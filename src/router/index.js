@@ -7,7 +7,9 @@ import animate from '@/components/Animate'
 import drag from '@/components/Drag.vue'
 import menu from '@/components/Menu.vue'
 import dialog from '../app/dialog/Dialog.vue'
+
 import routesRouter from '../app/routes/routes.router'
+import lifecycleRouter from '../app/lifecycle/lifecycle.router'
 
 Vue.use(Router)
 
@@ -42,5 +44,8 @@ export default new Router({
     }, {
       path: '/dialog',
       component: dialog
-    }, routesRouter]
+    },
+    routesRouter,
+    lifecycleRouter
+  ]
 })
