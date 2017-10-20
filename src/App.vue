@@ -14,6 +14,7 @@
     <el-menu-item index="dialog"><router-link to="dialog">dialog</router-link></el-menu-item>
     <el-menu-item index="dialog"><router-link to="routes">路由</router-link></el-menu-item>
     <el-menu-item index="lifecycle"><router-link to="lifecycle">lifecycle</router-link></el-menu-item>
+    <el-menu-item index="plugins"><router-link to="plugins">plugins</router-link></el-menu-item>
   </el-menu>
   <router-view></router-view>
 </div>

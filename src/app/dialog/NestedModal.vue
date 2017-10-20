@@ -1,5 +1,5 @@
 <template>
-<el-dialog title="提示" :visible.sync="visible" size="large" :modal="false" class="bottom-dialog">
+<el-dialog title="提示" :visible.sync="visible" size="full" :modal="false" class="bottom-dialog">
   <h1>第一个dialog</h1>
   <el-button type="text" @click="showModal">点击打开 Dialog</el-button>
   <span>这是一段信息</span>

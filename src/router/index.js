@@ -1,14 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import home from '../app/home/Home.vue'
-import dialog from '../app/dialog/Dialog.vue'
-import animate from '../app/animate/Animate.vue'
-import json from '../app/json/Json.vue'
-import user from '../app/user/User.vue'
-import drag from '../app/drag/Drag.vue'
-import menu from '../app/menu/Menu.vue'
-
+import homeRouter from '../app/home/home.router'
+import animateRouter from '../app/animate/animate.router'
+import jsonRouter from '../app/json/json.router'
+import userRouter from '../app/user/user.router'
+import dragRouter from '../app/drag/drag.router'
+import menuRouter from '../app/menu/menu.router'
+import dialogRouter from '../app/dialog/dialog.router'
 import routesRouter from '../app/routes/routes.router'
 import lifecycleRouter from '../app/lifecycle/lifecycle.router'
 
@@ -16,36 +15,13 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
-    {
-      path: '/',
-      name: 'home',
-      component: home
-    },
-    {
-      path: '/json',
-      name: 'json',
-      component: json
-    },
-    {
-      path: '/menu',
-      name: '/menu',
-      component: menu
-    },
-    {
-      path: '/user',
-      component: user
-    },
-    {
-      path: '/animate',
-      component: animate
-    },
-    {
-      path: '/drag',
-      component: drag
-    }, {
-      path: '/dialog',
-      component: dialog
-    },
+    homeRouter,
+    animateRouter,
+    jsonRouter,
+    userRouter,
+    dragRouter,
+    menuRouter,
+    dialogRouter,
     routesRouter,
     lifecycleRouter
   ]
