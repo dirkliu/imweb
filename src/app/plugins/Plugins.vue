@@ -5,6 +5,9 @@
 <script>
   export default {
     data () {
+    },
+    created () {
+      this.$console()
     }
   }
 </script>
