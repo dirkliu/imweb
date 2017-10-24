@@ -28,6 +28,14 @@ export default {
     return {
       activeIndex: 'home'
     }
+  },
+
+  created () {
+    var test = {
+      a: 'tres',
+      b: 'tesddb'
+    }
+    console.log(Object.values(test))
   }
 }
 </script>
