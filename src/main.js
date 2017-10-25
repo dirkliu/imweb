@@ -12,8 +12,8 @@ Vue.use(ElementUI)
 
 import store from './store'
 /* eslint-disable no-new */
-// import TestPlugin from './app/plugins/test.plugin'
-// Vue.use(TestPlugin)
+import TestPlugin from './app/plugins/test.plugin'
+Vue.use(TestPlugin)
 
 new Vue({
   el: '#app',

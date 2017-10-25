@@ -1,8 +1,9 @@
-export default class TestPlugin {
+class TestPlugin {
 }
 
 TestPlugin.install = function (Vue, options) {
-  Vue.protype.$console = function (methodOptions) {
+  Vue.prototype.$console = function (methodOptions) {
     console.log('Ok test!')
   }
 }
+export default TestPlugin
