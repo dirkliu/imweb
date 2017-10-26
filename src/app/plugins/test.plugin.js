@@ -6,4 +6,5 @@ TestPlugin.install = function (Vue, options) {
     console.log('Ok test!')
   }
 }
+
 export default TestPlugin
