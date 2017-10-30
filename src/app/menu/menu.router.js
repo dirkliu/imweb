@@ -1,4 +1,4 @@
-import Menu from './Menu.vue'
+const Menu = () => import('./Menu.vue')
 
 export default {
   path: '/menu',

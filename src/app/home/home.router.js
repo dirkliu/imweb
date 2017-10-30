@@ -1,4 +1,5 @@
-import Home from './Home.vue'
+// import Home from './Home.vue'
+const Home = () => import('./Home.vue')
 
 export default {
   path: '/',
