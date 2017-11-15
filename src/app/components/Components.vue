@@ -4,6 +4,9 @@
     开始时间：{{startTime}}<br/>
     结束时间：{{endTime}}<br>
     耗时：{{spendTime}} ms
+    <select v-model="selectId">
+      <option v-for="item in list" :value="item.id" :key="item.id">{{item.name}}</option>
+    </select>
   </div>
 </template>
 
@@ -12,7 +15,9 @@
     data () {
       return {
         startTime: new Date(),
-        endTime: new Date()
+        endTime: new Date(),
+        selectid: '',
+        list: []
       }
     },
 
@@ -24,9 +29,8 @@
 
     created () {
       this.startTime = new Date()
-      var a = []
-      for (var i = 0; i < 500000; i++) {
-        a.push({
+      for (var i = 0; i < 5000; i++) {
+        this.list.push({
           id: i,
           name: '第' + i + '个'
         })

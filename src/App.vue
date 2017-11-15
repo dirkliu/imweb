@@ -14,7 +14,7 @@
     <el-menu-item index="dialog"><router-link to="routes">路由</router-link></el-menu-item>
     <el-menu-item index="lifecycle"><router-link to="lifecycle">lifecycle</router-link></el-menu-item>
     <el-menu-item index="plugins"><router-link to="plugins">plugins</router-link></el-menu-item>
-    <el-menu-item index="plugins"><router-link to="components">组件</router-link></el-menu-item>
+    <el-menu-item index="components"><router-link to="components">组件</router-link></el-menu-item>
   </el-menu>
   <router-view></router-view>
 </div>
