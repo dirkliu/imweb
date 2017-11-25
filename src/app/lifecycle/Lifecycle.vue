@@ -35,7 +35,7 @@ export default {
     this.showTest('created')
   },
 
-  mounted () {
+  monted () {
     console.log('mounted:', this.title)
     this.showTest('mounted')
   }
