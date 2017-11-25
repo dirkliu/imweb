@@ -20,6 +20,8 @@ new Vue({
   store,
   router,
 //  TestPlugin,
-  template: '<App/>',
+  // render (h) {
+  //   return h(App)
+  // },
   components: { App }
 })
