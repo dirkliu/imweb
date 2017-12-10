@@ -28,15 +28,15 @@
     },
 
     created () {
-      this.startTime = new Date()
-      for (var i = 0; i < 5000; i++) {
-        this.list.push({
-          id: i,
-          name: '第' + i + '个'
-        })
-      }
-      this.endTime = new Date()
-      console.log('插时：', this.endTime - this.startTime)
+      // this.startTime = new Date()
+      // for (var i = 0; i < 5000; i++) {
+      //   this.list.push({
+      //     id: i,
+      //     name: '第' + i + '个'
+      //   })
+      // }
+      // this.endTime = new Date()
+      // console.log('插时：', this.endTime - this.startTime)
     }
   }
 </script>

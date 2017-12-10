@@ -10,6 +10,7 @@ import routesRouter from '../app/routes/routes.router'
 import lifecycleRouter from '../app/lifecycle/lifecycle.router'
 import pluginsRouter from '../app/plugins/plugins.router'
 import componentsRouter from '../app/components/components.router'
+import downloadRouter from '../app/download/download.router'
 
 Vue.use(Router)
 
@@ -23,6 +24,7 @@ export default new Router({
     routesRouter,
     lifecycleRouter,
     pluginsRouter,
-    componentsRouter
+    componentsRouter,
+    downloadRouter
   ]
 })

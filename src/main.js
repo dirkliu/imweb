@@ -19,9 +19,5 @@ new Vue({
   el: '#app',
   store,
   router,
-//  TestPlugin,
-  // render (h) {
-  //   return h(App)
-  // },
-  components: { App }
+  render: h => h(App)
 })
