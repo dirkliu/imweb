@@ -7,7 +7,7 @@ import router from './router'
 Vue.config.productionTip = false
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-default/index.css'
+import './themes/ele-orange/index.css'
 Vue.use(ElementUI)
 
 import store from './store'
