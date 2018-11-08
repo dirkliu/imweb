@@ -64,4 +64,7 @@ module.exports = {
       }
     ]
   }
+  // externals: {
+  //   Vue: 'Vue'
+  // }
 }
