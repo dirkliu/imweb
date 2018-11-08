@@ -11,6 +11,7 @@ import lifecycleRouter from '../app/lifecycle/lifecycle.router'
 import pluginsRouter from '../app/plugins/plugins.router'
 import componentsRouter from '../app/components/components.router'
 import downloadRouter from '../app/download/download.router'
+import dyNamicRouter from '../app/dynamic/dynamic.router'
 
 Vue.use(Router)
 
@@ -25,6 +26,7 @@ export default new Router({
     lifecycleRouter,
     pluginsRouter,
     componentsRouter,
-    downloadRouter
+    downloadRouter,
+    dyNamicRouter
   ]
 })
