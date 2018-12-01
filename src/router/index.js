@@ -12,6 +12,7 @@ import pluginsRouter from '../app/plugins/plugins.router'
 import componentsRouter from '../app/components/components.router'
 import downloadRouter from '../app/download/download.router'
 import dyNamicRouter from '../app/dynamic/dynamic.router'
+import formRouter from '../app/form/form.router'
 
 Vue.use(Router)
 
@@ -27,6 +28,7 @@ export default new Router({
     pluginsRouter,
     componentsRouter,
     downloadRouter,
-    dyNamicRouter
+    dyNamicRouter,
+    formRouter
   ]
 })
