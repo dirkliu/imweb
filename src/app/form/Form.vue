@@ -8,6 +8,13 @@
         <el-input v-model="formData.name"></el-input>
       </el-form-item>
       <el-form-item>
+        <el-upload
+          action="/api/upload"
+          :show-file-list="false">
+          <el-button type="primary" size="small">上传图片</el-button>
+        </el-upload>
+      </el-form-item>
+      <el-form-item>
         <el-button type="default" size="small" @click="changeName">change</el-button>
         <el-button type="primary" size="small" @click="submit">post</el-button>
         <el-button type="default" size="small" @click="tab ='1'">1</el-button>

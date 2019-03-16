@@ -1,4 +1,4 @@
-import Components from './components.vue'
+import Components from './Components.vue'
 
 export default {
   name: 'components',
