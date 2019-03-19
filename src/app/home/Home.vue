@@ -1,25 +1,7 @@
 <template>
   <div>
     <button type="button" title="add" @click="onAdd">+</button>
-    <ul>
-      <li v-for="random in randomList">
-        <b>time: {{random.time}}</b>,
-        <i>number: {{random.number}}</i>
-        <button type="button" @click="onChange(random)">change</button>
-      </li>
-    </ul>
-    <p v-for="tag in tags">{{tag}}</p>
-    <el-table
-      :data="list"
-      border
-      style="width: 100%">
-      <div v-for="tag in tags">
-        <el-table-column
-          :prop="tag"
-          :label="tag">
-        </el-table-column>
-      </div>
-    </el-table>
+    <el-button type="primary" @click="sendMessage()">发送消息</el-button>
   </div>
 </template>
 
@@ -34,10 +16,7 @@
             number: Math.random()
           }
         ],
-        tags: ['zxcv', 'xcv', 'abc', 'dev'],
-        list: [
-          {zxcv: 1, xcv: 2, abc: 3, dev: 4}
-        ]
+        ws: new WebSocket('ws://localhost:8181')
       }
     },
 
@@ -46,19 +25,20 @@
         // this.randomList.unshift({number: Math.random(), time: new Date().toLocaleString()})
         this.randomList.unshift({time: new Date().toLocaleString()})
       },
-      onChange (random) {
-        var newRandom = {
-          time: new Date().toLocaleString(),
-          number: Math.random()
-        }
-        Object.assign({}, random, newRandom)
+
+      sendMessage () {
+        console.log('sendMessage:')
+        this.ws.send('sendMessage' + Math.random())
       }
     },
 
     created () {
-      var obj = {a: '1', b: '2', c: '3', d: '4'}
-      console.log('obj values:', Object.values(obj))
-      console.log('test:', TEST_ROOT)
+      this.ws.onopen = e => {
+        console.log('Connection to server opened:', e)
+      }
+      this.ws.onmessage = e => {
+        console.log('on message:', e.data)
+      }
     }
   }
 </script>
