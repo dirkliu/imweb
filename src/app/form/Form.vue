@@ -63,6 +63,10 @@
       submit () {
         this.$refs.form.validate()
       }
+    },
+
+    created () {
+      this.$request('get', '/api/detail')
     }
   }
 </script>
