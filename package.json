@@ -1,12 +1,12 @@
 {
-  "name": "my-vue",
-  "version": "1.0.0",
+  "name": "imweb",
+  "version": "0.0.1",
   "description": "A Vue.js project",
   "author": "dirkliu <liuqi0702@126.com>",
-  "homepage": "https://github.com/dirkliu/my-vue",
+  "homepage": "https://github.com/dirkliu/imweb",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dirkliu/my-vue.git"
+    "url": "https://github.com/dirkliu/imweb.git"
   },
   "scripts": {
     "dev": "node build/dev-server.js",

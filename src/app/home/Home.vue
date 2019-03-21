@@ -9,6 +9,7 @@
   export default {
     data () {
       return {
+        messageList: [],
         ws: new WebSocket('ws://localhost:8181')
       }
     },
@@ -26,6 +27,7 @@
       }
       this.ws.onmessage = e => {
         console.log('on message:', e.data)
+        this.messageList.push(e.data)
       }
     }
   }
