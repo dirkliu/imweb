@@ -1,16 +1,20 @@
 <template>
   <div class="home-page">
-    <button type="button" title="" @click="sendMessage()">发送消息</button>
+    <div class="message-box"></div>
+    <span class="send-btn" @click="sendMessage">Send</span>
   </div>
 </template>
 
 <script>
-
+  const ws = new WebSocket('ws://localhost:3000')
+  ws.onopen = e => {
+    console.log('Connection to server opened:', e)
+  }
   export default {
     data () {
       return {
         messageList: [],
-        ws: new WebSocket('ws://localhost:8181')
+        ws: ws
       }
     },
 
@@ -22,9 +26,6 @@
     },
 
     created () {
-      this.ws.onopen = e => {
-        console.log('Connection to server opened:', e)
-      }
       this.ws.onmessage = e => {
         console.log('on message:', e.data)
         this.messageList.push(e.data)
@@ -32,3 +33,29 @@
     }
   }
 </script>
+
+<style lang="scss">
+.home-page {
+  padding: 1vh;
+
+  .message-box {
+    height: 80vh;
+    background-color: #fff;
+  }
+  .send-btn {
+    display: block;
+    width: 15vh;
+    height: 15vh;
+    line-height: 15vh;
+    text-align: center;
+    color: #fff;
+    font-size: 3vh;
+    border-radius: 10vh;
+    position: absolute;
+    bottom: 1vh;
+    left: 50%;
+    background-color: #f93;
+    transform: translateX(-50%);
+  }
+}
+</style>
