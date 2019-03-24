@@ -1,14 +1,34 @@
 const net = require('net');
+const crypto  = require('crypto')
 const PORT = 3000
+// const sha1= crypto.createHash('sha1')
+
 const server = net.createServer(socket => {
   // 'connection' listener
   socket.setEncoding('utf-8')
-  console.log('client connected:');
+  socket.setKeepAlive(true)
+  console.log('client connected socket:', socket);
 
   socket.on('data', data => {
     console.log('data:', data)
     let matchData = data.match(/(?<=Sec-WebSocket-Key:\s)(.*)(?=\r\n)/g)
     console.log('matchData:', matchData[0])
+    // console.log('sha1.update(matchData[0]).digest:', sha1.update(matchData[0]).digest('base64'))
+    const sha1= crypto.createHash('sha1')
+    var acceptKey = sha1.update(matchData[0]).digest('base64')
+    console.log('acceptKey:', acceptKey)
+    let resData = 'HTTP/1.1 101 Switching Protocols\r\n' + 
+      'Upgrade: websocket\r\n' +
+      'Connection: Upgrade\r\n' + 
+      'Sec-WebSocket-Accept: ' + acceptKey
+    socket.write(resData, msg => {
+      console.log('socket write:', msg)
+      // socket.end()
+    })
+  })
+
+  socket.on('drain', msg => {
+    console.log('drain', msg)
   })
 
   socket.on('ready', data => {
