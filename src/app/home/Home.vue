@@ -7,9 +7,9 @@
 
 <script>
   const ws = new WebSocket('ws://localhost:3000')
-  ws.onopen = e => {
-    console.log('Connection to server opened:', e)
-  }
+  ws.addEventListener('open', function () {
+    ws.send('message')
+  })
   export default {
     data () {
       return {
@@ -29,6 +29,10 @@
       this.ws.onmessage = e => {
         console.log('on message:', e.data)
         this.messageList.push(e.data)
+      }
+
+      this.ws.onclose = e => {
+        console.log('ws onclose:', e)
       }
     }
   }
