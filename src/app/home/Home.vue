@@ -8,7 +8,8 @@
 <script>
   const ws = new WebSocket('ws://localhost:3000')
   ws.addEventListener('open', function () {
-    ws.send('message')
+    // ws.send('message')
+    console.log('ws ready')
   })
   export default {
     data () {
@@ -20,8 +21,7 @@
 
     methods: {
       sendMessage () {
-        console.log('sendMessage:')
-        this.ws.send('sendMessage' + Math.random())
+        this.ws.send('a111让')
       }
     },
 
