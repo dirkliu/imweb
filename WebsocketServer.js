@@ -3,14 +3,11 @@ const crypto  = require('crypto')
 const PORT = 3000
 const MAGIC_VALUE = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
 // const sha1= crypto.createHash('sha1')
+var sockets = new Map() // 存储客户端的sockets
 
 const server = net.createServer(socket => {
-  // 'connection' listener
-  // socket.setEncoding('utf-8')
-  // socket.setKeepAlive(true)
-
   socket.once('data', data => {
-    // console.log('once data:', data)
+    console.log('client connect:')
     let matchData = data.toString().match(/(?<=Sec-WebSocket-Key:\s)(.*)(?=\r\n)/g)
     if (matchData) {
       var sha1= crypto.createHash('sha1')
@@ -20,6 +17,7 @@ const server = net.createServer(socket => {
         'Connection: Upgrade\r\n' + 
         'Sec-WebSocket-Accept: ' + acceptKey +'\r\n\r\n'
       socket.write(resData)
+      sockets.set(socket)
 
       socket.on('data', buffer => {
         const data = decodeWsFrame(buffer)
@@ -27,9 +25,15 @@ const server = net.createServer(socket => {
         // opcode为8，表示客户端发起了断开连接
         if (data.opcode === 8) {
           socket.end()  // 与客户端断开连接
+          sockets.delete(socket)
         } else {
           // 接收到客户端数据时的处理，此处默认为返回接收到的数据。
           socket.write(encodeWsFrame({ payloadData: '服务端已收到' + data.payloadData.toString('utf-8') }))
+          for (let [key, value] of sockets) {
+            if (key !== socket) {
+              key.write(encodeWsFrame({ payloadData: '其他客户端有新消息!'}))
+            }
+          }
         }
       })
     } else {
@@ -58,8 +62,6 @@ function decodeWsFrame(dataRaw) {
     maskingKey: '',
     payloadData: null
   };
-
-  console.log('payloadLen:', frame.payloadLen)  
 
   if (frame.payloadLen === 126) {
     frame.payloadLen = (data[start++] << 8) + data[start++]; // << 左移运算
