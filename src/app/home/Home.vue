@@ -21,7 +21,7 @@
 
     methods: {
       sendMessage () {
-        this.ws.send('a111让')
+        this.ws.send('a111让111111111111111111111111111111111dfasdfasfasfsafadsfasdfdasfdasfdasfasfdasfdasfdasfdasfdasfdasfeeefefasfa')
       }
     },
 

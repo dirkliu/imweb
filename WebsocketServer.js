@@ -7,7 +7,7 @@ const MAGIC_VALUE = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
 const server = net.createServer(socket => {
   // 'connection' listener
   socket.setEncoding('utf-8')
-  socket.setKeepAlive(true)
+  // socket.setKeepAlive(true)
 
   socket.once('data', data => {
     // console.log('once data:', data)
@@ -22,8 +22,6 @@ const server = net.createServer(socket => {
       socket.write(resData)
 
       socket.on('data', buffer => {
-        // console.log('buffer', buffer.toString())
-        // socket.write('s')
         const data = decodeWsFrame(buffer)
 
         // opcode为8，表示客户端发起了断开连接
@@ -31,7 +29,7 @@ const server = net.createServer(socket => {
           socket.end()  // 与客户端断开连接
         } else {
           // 接收到客户端数据时的处理，此处默认为返回接收到的数据。
-          socket.write(encodeWsFrame({ payloadData: '服务端已收到' }))
+          socket.write(encodeWsFrame({ payloadData: '服务端已收到' + data.payloadData.toString('utf-8') }))
         }
       })
     } else {
@@ -46,20 +44,25 @@ server.listen(PORT, () => {
   console.log('tcp listening at port:', PORT)
 })
 
-function decodeWsFrame(data) {
+function decodeWsFrame(dataRaw) {
   // console.log('decodeWsFrame data-start:', data[0])
+
+  // console.log('buffer data:', Buffer.from(dataRaw, 'utf-8'))
+  let data = Buffer.from(dataRaw)
   let start = 0;
   let frame = {
-    isFinal: (data[start] & 0x80) === 0x80,
-    opcode: data[start++] & 0xF,
-    masked: (data[start] & 0x80) === 0x80,
-    payloadLen: data[start++] & 0x7F,
+    isFinal: (data[start] & 0x80) === 0x80, // index = 0， start = 0
+    opcode: data[start++] & 0xF, // index = 0, start  = 1
+    masked: (data[start] & 0x80) === 0x80, // index = 1, start = 1
+    payloadLen: data[start++] & 0x7F, // index = 1, start = 2
     maskingKey: '',
     payloadData: null
   };
 
+  console.log('payloadLen:', frame.payloadLen)  
+
   if (frame.payloadLen === 126) {
-    frame.payloadLen = (data[start++] << 8) + data[start++];
+    frame.payloadLen = (data[start++] << 8) + data[start++]; // << 左移运算
   } else if (frame.payloadLen === 127) {
     frame.payloadLen = 0;
     for (let i = 7; i >= 0; --i) {
