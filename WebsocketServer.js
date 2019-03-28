@@ -6,12 +6,12 @@ const MAGIC_VALUE = '258EAFA5-E914-47DA-95CA-C5AB0DC85B11'
 
 const server = net.createServer(socket => {
   // 'connection' listener
-  socket.setEncoding('utf-8')
+  // socket.setEncoding('utf-8')
   // socket.setKeepAlive(true)
 
   socket.once('data', data => {
     // console.log('once data:', data)
-    let matchData = data.match(/(?<=Sec-WebSocket-Key:\s)(.*)(?=\r\n)/g)
+    let matchData = data.toString().match(/(?<=Sec-WebSocket-Key:\s)(.*)(?=\r\n)/g)
     if (matchData) {
       var sha1= crypto.createHash('sha1')
       var acceptKey = sha1.update(matchData[0] + MAGIC_VALUE).digest('base64')
@@ -48,7 +48,7 @@ function decodeWsFrame(dataRaw) {
   // console.log('decodeWsFrame data-start:', data[0])
 
   // console.log('buffer data:', Buffer.from(dataRaw, 'utf-8'))
-  let data = Buffer.from(dataRaw)
+  let data = dataRaw
   let start = 0;
   let frame = {
     isFinal: (data[start] & 0x80) === 0x80, // index = 0， start = 0
