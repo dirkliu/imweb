@@ -7,13 +7,9 @@
 </template>
 
 <script>
-	export default {
-		data () {
-	 		return {
-	 		 	formData: {
-	 		 		user: ''
-	 		 	}
-	 		}
-	 	}
-	}
+  export default {
+    data () {
+      return {}
+    }
+  }
 </script>
