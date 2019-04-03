@@ -7,6 +7,8 @@ import router from './router'
 Vue.config.productionTip = false
 
 import store from './store'
+import request from './utils/request'
+Vue.prototype.$request = request
 /* eslint-disable no-new */
 
 new Vue({
